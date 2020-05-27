@@ -122,14 +122,11 @@
 					_currentMapEditInfos = new Map(_currentMap.Filename, _currentMap.DisplayName, _currentMap.Authors, _currentMap.Description, _currentMap.Rating, _currentMap.Flags);
 				}
 
-				var editRect = new Rect((Screen.width / 2) - (Screen.width / 8), 300, Screen.width / 4, 340);
+				var editRect = new Rect((Screen.width / 2) - (Screen.width / 8), 300, Screen.width / 4, 325);
 				GUI.Box(editRect, "", new GUIStyle() { normal = new GUIStyleState() { background = TextureHelpers.MakeTexture(2, 2, new Color(.3f, .3f, .3f, 1f)) } });
 
 				var style = new GUIStyle() {
-					//normal = new GUIStyleState() {
-					//	background = TextureHelpers.MakeTexture(2, 2, new Color(.3f, .3f, .3f, 8f)),
-					//},
-					padding = new RectOffset(25, 25, 25, 25),
+					padding = new RectOffset(20, 25, 25, 25),
 					border = new RectOffset(1, 1, 1, 1)
 				};
 

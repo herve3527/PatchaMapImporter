@@ -17,7 +17,7 @@
 		{
 			using (new GUILayout.HorizontalScope()) {
 				GUILayout.Label(label, GUILayout.ExpandWidth(false));
-				Value = (int)Math.Round(GUILayout.HorizontalSlider((float)rating, 0f, 100f));
+				Value = (int)Math.Round(GUILayout.HorizontalSlider((float)rating, 0f, 100f, GUILayout.ExpandWidth(true)));
 				GUILayout.Space(5);
 				GUILayout.Label(Value.ToString());
 			}

@@ -16,7 +16,7 @@
 		Mega = 16,
 		Race = 32,
 		Other = 64,
-		All = Park | Trail | Street | Mega | Race | Other
+		All = Trail | Park | Bowl | Street | Mega | Race | Other
 	}
 
 	/// <summary>

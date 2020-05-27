@@ -17,7 +17,7 @@
 		public EditMapWidget(ref Map editedMapInfos, Action<Map> onSaveMapInfo, Action<Map> onCancel)
 		{
 			using (new GUILayout.VerticalScope()) {
-				var displayName = new TextEditWidget("Name :", editedMapInfos.DisplayName).Value;
+				var displayName = new TextEditWidget("   Name :", editedMapInfos.DisplayName).Value;
 				var authors = new TextEditWidget("Authors :", editedMapInfos.Authors).Value;
 				var rating = new RatingWidget("Rating : ", editedMapInfos.Rating).Value;
 				var flags = new FlagsFilterWidget("types : ", editedMapInfos.Flags).Value;
