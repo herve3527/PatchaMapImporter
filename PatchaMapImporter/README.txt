@@ -3,6 +3,8 @@
 -> Volution Modding discord https://discord.gg/S89swkZ
 this mod is provided as-is. no warranty of any kind. Use it at your own risk and enjoy it (exactly the definition of bmx)
 
+-> @patchamak_trail https://www.instagram.com/patchamak_trail 
+
 --WHAT IS IT--
 A map loading/filtering tool for the game BMX PIPE by MASH: http://bmxstreets.com/pipe/ BUY THIS AWESOME GAME (and the only one we have now) AND THE _REAL_ UPCOMING BMX STREETS GAME.
 You must own the game legally to use this mod so BUY THIS GAME TO SUPPORT MASH.

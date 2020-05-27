@@ -10,7 +10,7 @@
 	class EditMapWidget
 	{
 		/// <summary>
-		/// construct a map widget
+		/// construct a map widget and delegate for save or cancel
 		/// </summary>
 		/// <param name="map"></param>
 		/// <param name="even"></param>

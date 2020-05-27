@@ -1,6 +1,6 @@
 ﻿{
 	"Id": "PatchaMapImporter",
-	"DisplayName": "PatchaMapImporter with filtering",
+	"DisplayName": "PatchaMapImporter",
 	"Author": "herve3527 with code from Mayhem & Lineryder's original PipeworksMapImporter",
 	"Version": "0.9.0",
 	"ManagerVersion": "0.12.3",
