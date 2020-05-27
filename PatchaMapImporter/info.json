@@ -1,0 +1,9 @@
+﻿{
+	"Id": "PatchaMapImporter",
+	"DisplayName": "PatchaMapImporter with filtering",
+	"Author": "herve3527 with code from Mayhem & Lineryder's original PipeworksMapImporter",
+	"Version": "0.9.0",
+	"ManagerVersion": "0.12.3",
+	"AssemblyName": "PatchaMapImporter.dll",
+	"EntryMethod": "PatchaMapImporter.ModEntry.Load"
+}
