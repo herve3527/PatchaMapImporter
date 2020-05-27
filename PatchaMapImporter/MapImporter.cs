@@ -25,7 +25,7 @@
 		void Update()
 		{
 			if (Input.GetKeyDown(KeyCode.L) && !_editUiVisible) _mainUiVisible = !_mainUiVisible;
-			if (Input.GetKeyDown(KeyCode.E)) _editUiVisible = !_editUiVisible;
+			if (Input.GetKeyDown(KeyCode.E) && _currentMap != null) _editUiVisible = !_editUiVisible;
 		}
 
 		/// <summary>
