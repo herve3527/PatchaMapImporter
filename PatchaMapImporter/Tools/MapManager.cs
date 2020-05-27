@@ -94,10 +94,18 @@
 			//order
 			switch (filter.Ordering) {
 				case Ordering.ByRating:
-					maps.Sort(delegate (Map x, Map y) { return -x.Rating.CompareTo(y.Rating); });
+					maps.Sort(delegate (Map x, Map y) { 
+						var comp = -x.Rating.CompareTo(y.Rating); //sort by rating
+						if (comp == 0) return x.DisplayName.CompareTo(y.DisplayName); //then by name
+						return comp;
+					});
 					break;
 				case Ordering.ByAuthors:
-					maps.Sort(delegate (Map x, Map y) { return x.Authors.CompareTo(y.Authors); });
+					maps.Sort(delegate (Map x, Map y) { 
+						var comp = x.Authors.CompareTo(y.Authors);  //sort by authors
+						if(comp == 0) return x.DisplayName.CompareTo(y.DisplayName); //then by name
+						return comp;
+					});
 					break;
 				default: //ByName
 					maps.Sort(delegate (Map x, Map y) { return x.DisplayName.CompareTo(y.DisplayName); });
