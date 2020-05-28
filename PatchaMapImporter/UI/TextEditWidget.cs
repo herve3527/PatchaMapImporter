@@ -1,4 +1,6 @@
-﻿namespace PatchaMapImporter.UI
+﻿//copyrights herve3527 / herve_patcha@3527trail.com
+
+namespace PatchaMapImporter.UI
 {
 	using UnityEngine;
 

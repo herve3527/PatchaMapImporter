@@ -101,11 +101,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="README.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Assets\patcha-128.png" />
     <EmbeddedResource Include="Assets\volution-128.png" />
   </ItemGroup>

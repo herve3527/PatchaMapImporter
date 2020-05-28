@@ -1,4 +1,8 @@
-﻿namespace PatchaMapImporter.Tools
+﻿//copyrights
+//Mayhem/Lineryder @ Volution Modding team
+//herve3527 / herve_patcha@3527trail.com
+
+namespace PatchaMapImporter.Tools
 {
 	using BMXS_AStates;
 	using Models;

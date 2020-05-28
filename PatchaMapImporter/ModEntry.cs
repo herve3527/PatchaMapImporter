@@ -1,4 +1,6 @@
-﻿namespace PatchaMapImporter
+﻿//copyrights herve3527 / herve_patcha@3527trail.com
+
+namespace PatchaMapImporter
 {
     using Tools;
     using UnityEngine;

@@ -1,15 +1,17 @@
-== Patcha'MapImporter© copyrights herve_patcha@3527trail.com ==
+# Patcha'MapImporter
 
 DISCLAIMER: This mod is provided as-is. No warranty of any kind. Use it at your own risk and enjoy it (exactly the definition of bmx)
 
 -> Volution Modding discord https://discord.gg/S89swkZ
+
 Find all the mods, maps and more for BMX PIPE
 
 -> @patchamak_trail https://www.instagram.com/patchamak_trail 
+
 The trail I ride in my area. This map importer is dedicated to all the "dig'n'riders" who manage it.
 
 
---WHAT IS IT--
+## What is it
 
 A map loading/filtering tool for the game BMX PIPE by MASH: http://bmxstreets.com/pipe/ 
 BUY THIS AWESOME GAME (and the only serious bmx game we have now) AND THE _REAL_ UPCOMING BMX STREETS GAME.
@@ -19,15 +21,18 @@ PIPE is a physics based BMX experience built for the BMX community designed to s
 Perform over 50 aerial stunts, grind any corner, send big airs in the PIPE! PIPE also includes some fun Easter Eggs for those willing to explore and think outside the box.
 
 
---WHY IT EXISTS--
+## Why it exists
 
 The modding community is creating so much maps that I can't remember what's the name of the map i want to play. 
+
 I created this mod for adding personnal datas to the maps (name, rating, riding types, authors, descriptions) and an UI to filter the maps using theses datas.
-This data are stored inside a JSON file in the CustomMaps folder. This mod DOES NOT RENAME NOR CHANGE THE MAP FILES. It only use this json file to store data.
+This data are stored inside a JSON file in the CustomMaps folder. 
+
+This mod DOES NOT RENAME NOR CHANGE THE MAP FILES. It only use this json file to store data.
 Don't delete it or the maps will be back to the default values (name = filename, rating=50, all types of riding). Feel free to make backup of it.
 
 
---HOW IT WORK--
+## How it work
 
 You need BMX PIPE 1.9.9, Unity Mod Manager installed and running as well.
 Follow the tutorials in the pinned messages in the #help channel in https://discord.gg/S89swkZ for installing Mods inside PIPE BMX.
@@ -39,11 +44,12 @@ To use it, launch the game, load the standard map "the Community Center", and th
 
 This UI list all the maps you have in your "CustomMaps" folder, and permit you to filter the maps using the top part of the ui.
 
-* To load a map, simply click on it in the list.
-* To edit a map, 3 possibilities:
+To load a map, simply click on it in the list.
+To edit a map, 3 possibilities:
 - click on the "edit" button, 
 - right-click on it in the list.
 - after loading the map, directly press "E" (for "Edit"). Easy to put the description of the map you're currently playing. 
 
+## How to build
 
-Source code will be pushed to github soon.
+Copy the Assembly-CSharp.dll and Assembly-CSharp-firstpass.dll from the Game inside the "Libs" folder.
