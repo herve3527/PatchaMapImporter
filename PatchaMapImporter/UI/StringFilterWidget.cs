@@ -14,14 +14,7 @@
 		/// <param name="flags"></param>
 		public StringFilterWidget(string search)
 		{
-			var style = new GUIStyle {
-				fontSize = 15,
-				normal = new GUIStyleState {
-					textColor = Color.white
-				}
-			};
-
-			using (new GUILayout.HorizontalScope(style)) {
+			using (new GUILayout.HorizontalScope(_containerStyle)) {
 				Value = new TextEditWidget("Filter by names : ", search).Value;
 				GUILayout.Space(5);
 				if (GUILayout.Button("Clear", GUILayout.ExpandWidth(false))) {
@@ -38,5 +31,12 @@
 		/// Return current value
 		/// </summary>
 		public string Value { get; private set; }
+
+		private static readonly GUIStyle _containerStyle = new GUIStyle {
+			fontSize = 15,
+			normal = new GUIStyleState {
+				textColor = Color.white
+			}
+		};
 	}
 }

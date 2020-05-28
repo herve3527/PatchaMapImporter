@@ -52,7 +52,7 @@
 			GUI.Box(mainRect, "");
 
 			//patchamak trail logo
-			GUI.Label(new Rect(mainRect.x - 50, mainRect.y - 40, 128, 128), new GUIContent(LogoPatcha));
+			GUI.Label(new Rect(mainRect.x - 50, mainRect.y - 40, 128, 128), new GUIContent(_logoPatcha));
 
 			//main content
 			using (new GUILayout.AreaScope(new Rect(mainRect.x + 25, mainRect.y + 30, mainRect.width - 50, mainRect.height - 40))) {
@@ -123,9 +123,9 @@
 				}
 
 				var editRect = new Rect((Screen.width / 2) - (Screen.width / 8), 300, Screen.width / 4, 325);
-				GUI.Box(editRect, "", new GUIStyle() { normal = new GUIStyleState() { background = TextureHelpers.MakeTexture(2, 2, new Color(.3f, .3f, .3f, 1f)) } });
+				GUI.Box(editRect, "", _editBoxStyle);
 
-				var style = new GUIStyle() {
+				var style = new GUIStyle {
 					padding = new RectOffset(20, 25, 25, 25),
 					border = new RectOffset(1, 1, 1, 1)
 				};
@@ -153,18 +153,20 @@
 					);
 				}
 
-				GUI.Label(new Rect(editRect.x - 25, editRect.y - 20, 64, 64), new GUIContent(LogoPatcha));
+				GUI.Label(new Rect(editRect.x - 25, editRect.y - 20, 64, 64), new GUIContent(_logoPatcha));
 			}
 		}
 
 		//main ui vars
 		private bool _mainUiVisible = false;
 		private Vector2 _mainUiScrollPos = Vector2.zero;
-		static public Texture2D LogoPatcha = TextureHelpers.MakeTextureFromData(EmbeddedRessourceHelper.ReadResourceFile("PatchaMapImporter.Assets.patcha-128.png"), 128, 128);
+		static private readonly Texture2D _logoPatcha = TextureHelpers.MakeTextureFromData(EmbeddedRessourceHelper.ReadResourceFile("PatchaMapImporter.Assets.patcha-128.png"), 128, 128);
 
 		//edit ui vars
 		private bool _editUiVisible = false;
-		private Map _currentMapEditInfos;
+		private Map _currentMapEditInfos;//ui background
+		static private readonly Texture2D _background = TextureHelpers.MakeTexture(2, 2, new Color(.3f, .3f, .3f, 1f));
+		static private readonly GUIStyle _editBoxStyle = new GUIStyle { normal = new GUIStyleState() { background = _background } };
 
 		//--privates-------------------------
 

@@ -18,9 +18,9 @@
 		{
 			using (new GUILayout.VerticalScope()) {
 				var displayName = new TextEditWidget("   Name :", editedMapInfos.DisplayName).Value;
-				var authors = new TextEditWidget("Authors :", editedMapInfos.Authors).Value;
-				var rating = new RatingWidget("Rating : ", editedMapInfos.Rating).Value;
-				var flags = new FlagsFilterWidget("types : ", editedMapInfos.Flags).Value;
+				var authors = new TextEditWidget(    "Authors :", editedMapInfos.Authors).Value;
+				var rating = new RatingWidget(       "  Rating :", editedMapInfos.Rating).Value;
+				var flags = new FlagsFilterWidget(   "  Types : ", editedMapInfos.Flags).Value;
 				var description = new TextAreaWidget("Description : ", editedMapInfos.Description).Value;
 
 				editedMapInfos = new Map(editedMapInfos.Filename, displayName, authors, description, rating, flags);

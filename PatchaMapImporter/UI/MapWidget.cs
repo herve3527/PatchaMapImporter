@@ -1,5 +1,6 @@
 ﻿namespace PatchaMapImporter.UI
 {
+	using Tools;
 	using Models;
 	using UnityEngine;
 
@@ -8,9 +9,6 @@
 	/// </summary>
 	class MapWidget
 	{
-		public const string MAP_EDIT = "edit";
-		public const string MAP_LOAD = "load";
-
 		/// <summary>
 		/// construct a map widget
 		/// </summary>
@@ -20,49 +18,52 @@
 		{
 			Map = map;
 
-			var style = new GUIStyle {
-				padding = new RectOffset() { top = 10, left = 10, bottom = 10, right = 10 },
-			};
+			//change backgrounds alternatively
+			if (even) _containerStyle.normal.background = _lightMapBackground;
+			else _containerStyle.normal.background = _darkMapBackground;
 
-			//change background all 2 maps
-			if (even) style.normal.background = EvenMapBackground;
+			Rect editButtonRect;
 
-			using (new GUILayout.HorizontalScope(style)) {
+			using (new GUILayout.HorizontalScope(_containerStyle)) {
 				//Infos
 				using (new GUILayout.VerticalScope(GUILayout.ExpandWidth(true))) {
 					using (new GUILayout.HorizontalScope()) {
-						var mapNameStyle = new GUIStyle();
-						mapNameStyle.fontSize = 20;
-						mapNameStyle.normal.textColor = Color.white;
-						GUILayout.Label(map.DisplayName, mapNameStyle);
+						GUILayout.Label(map.DisplayName, _nameStyle);
 						if (!string.IsNullOrEmpty(map.Authors)) GUILayout.Label($"by {map.Authors}");
 						GUILayout.FlexibleSpace();
 					}
 
 					using (new GUILayout.HorizontalScope(GUILayout.ExpandWidth(false))) {
-						GUILayout.Label(map.Flags.ToString().Replace(",", " /"));
+						GUILayout.Label($"Rating : {map.Rating.ToString().PadLeft(3, ' ')}");
+						GUILayout.Label($"  |   {map.Flags.ToString().Replace(",", " /")}");
 						GUILayout.FlexibleSpace();
-						GUILayout.Label($"Rating : {map.Rating}");
 					}
 				}
 
-				//GUILayout.FlexibleSpace();
-				GUILayout.Space(20);
+				//edit button
+				using (new GUILayout.VerticalScope()) {
+					GUILayout.Space(5);
+					if (GUILayout.Button("edit", GUILayout.Width(50), GUILayout.Height(30))) {
+						Action = MAP_EDIT;
+					}
+					editButtonRect = GUILayoutUtility.GetLastRect();
+				}
+			}
 
-				//buttons
-				using (new GUILayout.VerticalScope(GUILayout.ExpandWidth(false))) {
-					Action = "";
-					using (new GUILayout.HorizontalScope()) {
-						if (GUILayout.Button(new GUIContent("edit properties", "edit map properties"))) {
-							Action = MAP_EDIT;
-						}
+			//make whole area clickable
+			Rect containerRect = GUILayoutUtility.GetLastRect();
+			if (Event.current != null && Event.current.isMouse) {
+				var mousePos = Event.current.mousePosition;
+				if (containerRect.Contains(mousePos)) {
+
+					//left click to load map
+					if (Input.GetMouseButtonDown(0) && !editButtonRect.Contains(mousePos)) {
+						Action = MAP_LOAD;
 					}
 
-					//TODO: highlight the whole control and make it clickable to load the map + hover effect and then remove the 'load' button
-					using (new GUILayout.HorizontalScope()) {
-						if (GUILayout.Button(new GUIContent("load this map!", "load map"), GUILayout.ExpandWidth(false))) {
-							Action = MAP_LOAD;
-						}
+					//right click to edit
+					if (Input.GetMouseButtonDown(1)) {
+						Action = MAP_EDIT;
 					}
 				}
 			}
@@ -79,8 +80,47 @@
 		public string Action { get; private set; }
 
 		/// <summary>
-		/// Alternate color for maps
+		/// consts for edit action
 		/// </summary>
-		private static Texture2D EvenMapBackground = TextureHelpers.MakeTexture(16, 16, new Color(.6f, .6f, .6f, .5f));
+		public const string MAP_EDIT = "edit";
+
+		/// <summary>
+		/// const for load action
+		/// </summary>
+		public const string MAP_LOAD = "load";
+
+		/// <summary>
+		/// style for container
+		/// </summary>
+		private GUIStyle _containerStyle = new GUIStyle {
+			padding = new RectOffset() { top = 10, left = 10, bottom = 10, right = 10 },
+			hover = new GUIStyleState() { background = _hoverBackground }
+		};
+
+		/// <summary>
+		/// style for name
+		/// </summary>
+		private static readonly GUIStyle _nameStyle = new GUIStyle {
+			fontSize = 20,
+			normal = new GUIStyleState() { textColor = Color.white }
+		};
+
+		/// <summary>
+		/// 'dark' background color
+		/// </summary>
+		/// private static readonly Texture2D _darkMapBackground = TextureHelpers.MakeTexture(16, 16, new Color(.54f, .36f, .21f, .35f));
+		private static readonly Texture2D _darkMapBackground = TextureHelpers.MakeTexture(16, 16, new Color(.47f, .32f, .19f, .35f));
+
+		/// <summary>
+		/// 'light' background color
+		/// </summary>
+		/// private static readonly Texture2D _lightMapBackground = TextureHelpers.MakeTexture(16, 16, new Color(.8f, .62f, .44f, .3f));
+		private static readonly Texture2D _lightMapBackground = TextureHelpers.MakeTexture(16, 16, new Color(.81f, .65f, .50f, .35f));
+
+		/// <summary>
+		/// Color when mouse over
+		/// </summary>
+		private static Texture2D _hoverBackground = TextureHelpers.MakeTexture(2, 2, new Color(.0f, .43f, .0f, .5f));
+
 	}
 }

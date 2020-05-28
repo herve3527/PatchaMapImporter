@@ -19,15 +19,9 @@
 		/// <param name="onEdit">Action to call when a map wants to be edited</param>
 		public MapListWidget(ref Vector2 scrollPos, List<Map> maps, Action<Map> onLoad, Action<Map> onEdit)
 		{
-			var style = new GUIStyle() {
-				normal = new GUIStyleState() {
-					background = ScrollBackground
-				}
-			};
-
 			GUILayout.Label($"{maps.Count} maps.");
 
-			scrollPos = GUILayout.BeginScrollView(scrollPos, style);
+			scrollPos = GUILayout.BeginScrollView(scrollPos, _containerStyle);
 			{
 				int i = 0;
 				foreach (var map in maps) {
@@ -47,7 +41,16 @@
 		/// <summary>
 		/// Background for all map list
 		/// </summary>
-		private static Texture2D ScrollBackground = TextureHelpers.MakeTexture(16, 16, new Color(.3f, .3f, .3f, .5f));
+		private static readonly Texture2D _scrollBackground = TextureHelpers.MakeTexture(16, 16, new Color(.3f, .3f, .3f, .5f));
+
+		/// <summary>
+		/// Style for list
+		/// </summary>
+		private static readonly GUIStyle _containerStyle = new GUIStyle {
+			normal = new GUIStyleState() {
+				background = _scrollBackground
+			}
+		};
 	}
 
 

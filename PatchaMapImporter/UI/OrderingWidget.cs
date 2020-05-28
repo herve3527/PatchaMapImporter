@@ -17,14 +17,7 @@
 		{
 			Value = order;
 
-			var style = new GUIStyle {
-				fontSize = 30,
-				normal = new GUIStyleState {
-					textColor = Color.white
-				}
-			};
-
-			using (new GUILayout.HorizontalScope(style)) {
+			using (new GUILayout.HorizontalScope(_containerStyle)) {
 				GUILayout.FlexibleSpace();
 				GUILayout.Label("Order by : ", GUILayout.ExpandWidth(false));
 
@@ -41,5 +34,12 @@
 		/// Return current value
 		/// </summary>
 		public Ordering Value { get; private set; }
+
+		private static readonly GUIStyle _containerStyle = new GUIStyle {
+			fontSize = 30,
+			normal = new GUIStyleState {
+				textColor = Color.white
+			}
+		};
 	}
 }

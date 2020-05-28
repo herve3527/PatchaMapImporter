@@ -18,14 +18,7 @@
 		{
 			Value = flags;
 
-			var style = new GUIStyle {
-				fontSize = 30,
-				normal = new GUIStyleState {
-					textColor = Color.white
-				}
-			};
-
-			using (new GUILayout.HorizontalScope(style)) {
+			using (new GUILayout.HorizontalScope(_containerStyle)) {
 				GUILayout.Label(label, GUILayout.ExpandWidth(false));
 				foreach (MapType t in Enum.GetValues(typeof(MapType))) {
 					if (t != MapType.None && t != MapType.All) {
@@ -52,5 +45,15 @@
 		/// Return current value
 		/// </summary>
 		public MapType Value { get; private set; }
+
+		/// <summary>
+		/// Container style
+		/// </summary>
+		private static readonly GUIStyle _containerStyle = new GUIStyle {
+			fontSize = 30,
+			normal = new GUIStyleState {
+				textColor = Color.white
+			}
+		};
 	}
 }
