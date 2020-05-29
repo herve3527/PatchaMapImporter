@@ -37,18 +37,29 @@ Don't delete it or the maps will be back to the default values (name = filename,
 You need BMX PIPE 1.9.9, Unity Mod Manager installed and running as well.
 Follow the tutorials in the pinned messages in the #help channel in https://discord.gg/S89swkZ for installing Mods inside PIPE BMX.
 
-Copy the folder "PatchaMapImporter" from the zip file  inside the folder "Mods" of the game. 
+Copy the folder "PatchaMapImporter" from the zip file inside the folder "Mods" of the game. 
 
 To use it, launch the game, load the standard map "the Community Center", and then press the key "L" (for "List") to show the Patcha'Map Importer UI. 
 (the key "M" is already used by the legacy PipeWorksMapImporter, so you can use both at the same time.)
 
-This UI list all the maps you have in your "CustomMaps" folder, and permit you to filter the maps using the top part of the ui.
+This UI list all the maps you have in your "CustomMaps" folder like the original MapImporter. 
+_Please note that this mod does not change in any way the map files. They will remain as is, as the mod is storing elsewhere the additional infos (_pmi.json in the CustomMaps folder)_
+
+For each map, you will be able to add datas to classify your maps :
+Name: change the name of the map (default: filename)
+Author: show the name of the authors so they can get what they deserve
+Types: choose the types of riding you find in the map
+Rating: from 1 to 100, what do you think of the map (mainly an option for ordering your map, default=50)
+Description : free text to add to the map
+
+All these datas will permit you to filter, order, and search for the map you want to play, by using the filter at the top of the ui.
+example : Easy to check only 'Trail', then search "sil" to find directly the silverlake trail map and go into the forest going big.
 
 To load a map, simply click on it in the list.
 To edit a map, 3 possibilities:
 - click on the "edit" button, 
 - right-click on it in the list.
-- after loading the map, directly press "E" (for "Edit"). Easy to put the description of the map you're currently playing. 
+- after loading the map, when playing, directly press "E" (for "Edit"). Easy to put the description of the map you're currently playing.
 
 ## How to build
 

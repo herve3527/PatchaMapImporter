@@ -125,7 +125,9 @@ namespace PatchaMapImporter
 				}
 
 				var editRect = new Rect((Screen.width / 2) - (Screen.width / 8), 300, Screen.width / 4, 325);
-				GUI.Box(editRect, "", _editBoxStyle);
+
+				if(_mainUiVisible) GUI.Box(editRect, "", _editBoxStyle); //no transparency above main ui
+				else GUI.Box(editRect, "");
 
 				var style = new GUIStyle {
 					padding = new RectOffset(20, 25, 25, 25),

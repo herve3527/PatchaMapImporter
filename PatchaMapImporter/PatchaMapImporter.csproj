@@ -108,6 +108,6 @@
   <PropertyGroup>
     <PostBuildEvent>copy /Y "$(TargetPath)" "C:\Program Files (x86)\Steam\steamapps\content\app_815780\depot_815781\Mods\PatchaMapImporter\"
 copy /Y "$(ProjectDir)info.json" "C:\Program Files (x86)\Steam\steamapps\content\app_815780\depot_815781\Mods\PatchaMapImporter\"
-copy /Y "$(ProjectDir)README.txt" "C:\Program Files (x86)\Steam\steamapps\content\app_815780\depot_815781\Mods\PatchaMapImporter\"</PostBuildEvent>
+copy /Y "$(SolutionDir)README.md" "C:\Program Files (x86)\Steam\steamapps\content\app_815780\depot_815781\Mods\PatchaMapImporter\"</PostBuildEvent>
   </PropertyGroup>
 </Project>
