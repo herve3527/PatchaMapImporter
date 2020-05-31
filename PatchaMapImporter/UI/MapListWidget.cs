@@ -19,7 +19,7 @@ namespace PatchaMapImporter.UI
 		/// <param name="maps">map list to show</param>
 		/// <param name="onLoad">Action to call when a map wants to be loaded</param>
 		/// <param name="onEdit">Action to call when a map wants to be edited</param>
-		public MapListWidget(ref Vector2 scrollPos, List<Map> maps, Action<Map> onLoad, Action<Map> onEdit)
+		public MapListWidget(ref Vector2 scrollPos, List<Map> maps, Map currentMap, Action<Map> onLoad, Action<Map> onEdit)
 		{
 			GUILayout.Label($"{maps.Count} maps.");
 
@@ -28,7 +28,7 @@ namespace PatchaMapImporter.UI
 				int i = 0;
 				foreach (var map in maps) {
 					var even = (++i % 2) == 0;
-					var widget = new MapWidget(map, even);
+					var widget = new MapWidget(map, even, map == currentMap);
 
 					//call actions
 					if (widget.Action == MapWidget.MAP_EDIT) onEdit(map);

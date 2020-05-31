@@ -16,12 +16,13 @@ namespace PatchaMapImporter.UI
 		/// </summary>
 		/// <param name="map"></param>
 		/// <param name="even"></param>
-		public MapWidget(Map map, bool even)
+		public MapWidget(Map map, bool even, bool current)
 		{
 			Map = map;
 
 			//change backgrounds alternatively
-			if (even) _containerStyle.normal.background = _lightMapBackground;
+			if(current) _containerStyle.normal.background = _currentMapBackground;
+			else if (even) _containerStyle.normal.background = _lightMapBackground;
 			else _containerStyle.normal.background = _darkMapBackground;
 
 			Rect editButtonRect;
@@ -118,6 +119,12 @@ namespace PatchaMapImporter.UI
 		/// </summary>
 		/// private static readonly Texture2D _lightMapBackground = TextureHelpers.MakeTexture(16, 16, new Color(.8f, .62f, .44f, .3f));
 		private static readonly Texture2D _lightMapBackground = TextureHelpers.MakeTexture(16, 16, new Color(.81f, .65f, .50f, .35f));
+
+
+		/// <summary>
+		/// 'current' background color
+		/// </summary>
+		private static readonly Texture2D _currentMapBackground = TextureHelpers.MakeTexture(16, 16, new Color(.29f, .10f, .08f, .40f));
 
 		/// <summary>
 		/// Color when mouse over
