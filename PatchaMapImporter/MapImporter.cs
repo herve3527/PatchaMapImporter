@@ -3,6 +3,7 @@
 namespace PatchaMapImporter
 {
 	using Models;
+	using System;
 	using System.IO;
 	using Tools;
 	using UI;
@@ -47,6 +48,7 @@ namespace PatchaMapImporter
 		void ShowMainUi()
 		{
 			var mainRect = new Rect(Screen.width / 3, 100, Screen.width / 3, Screen.height - 200);
+			mainRect.width = Math.Max(Screen.width / 3, 500); //force width to not be less than the minimum size to show all controls
 
 			//fixed positioning
 
@@ -77,9 +79,9 @@ namespace PatchaMapImporter
 						GUILayout.Space(10);
 
 						//show map list and wire button actions
-						new MapListWidget(ref _mainUiScrollPos, _mapManager.Maps,
+						new MapListWidget(ref _mainUiScrollPos, _mapManager.Maps, _currentMap,
 							map => {
-								//if (_editUiVisible) return; //deactivate if editing
+								if (map == _currentMap) return; //map already loaded, do nothing
 
 								Log.Write($"MI: Load map '{map.Filename}'");
 								_currentMap = map;
@@ -125,8 +127,9 @@ namespace PatchaMapImporter
 				}
 
 				var editRect = new Rect((Screen.width / 2) - (Screen.width / 8), 300, Screen.width / 4, 325);
+				editRect.width = Math.Max(Screen.width / 3, 500); //force width to not be less than the minimum size to show all controls
 
-				if(_mainUiVisible) GUI.Box(editRect, "", _editBoxStyle); //no transparency above main ui
+				if (_mainUiVisible) GUI.Box(editRect, "", _editBoxStyle); //no transparency above main ui
 				else GUI.Box(editRect, "");
 
 				var style = new GUIStyle {

@@ -21,7 +21,10 @@ namespace PatchaMapImporter.UI
 			Map = map;
 
 			//change backgrounds alternatively
-			if(current) _containerStyle.normal.background = _currentMapBackground;
+			if (current) {
+				_containerStyle.normal.background = _currentMapBackground;
+				_containerStyle.hover = new GUIStyleState() { };
+			}
 			else if (even) _containerStyle.normal.background = _lightMapBackground;
 			else _containerStyle.normal.background = _darkMapBackground;
 
