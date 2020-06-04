@@ -48,7 +48,7 @@ namespace PatchaMapImporter
 		void ShowMainUi()
 		{
 			var mainRect = new Rect(Screen.width / 3, 100, Screen.width / 3, Screen.height - 200);
-			mainRect.width = Math.Max(Screen.width / 3, 500); //force width to not be less than the minimum size to show all controls
+			mainRect.width = Math.Max(Screen.width / 3, 600); //force width to not be less than the minimum size to show all controls
 
 			//fixed positioning
 
@@ -76,7 +76,7 @@ namespace PatchaMapImporter
 							_mainUiScrollPos = Vector2.zero;
 						}
 
-						GUILayout.Space(10);
+						GUILayout.Space(5);
 
 						//show map list and wire button actions
 						new MapListWidget(ref _mainUiScrollPos, _mapManager.Maps, _currentMap,
@@ -127,7 +127,7 @@ namespace PatchaMapImporter
 				}
 
 				var editRect = new Rect((Screen.width / 2) - (Screen.width / 8), 300, Screen.width / 4, 325);
-				editRect.width = Math.Max(Screen.width / 3, 500); //force width to not be less than the minimum size to show all controls
+				editRect.width = Math.Max(Screen.width / 3, 600); //force width to not be less than the minimum size to show all controls
 
 				if (_mainUiVisible) GUI.Box(editRect, "", _editBoxStyle); //no transparency above main ui
 				else GUI.Box(editRect, "");
