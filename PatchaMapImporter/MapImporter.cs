@@ -28,7 +28,7 @@ namespace PatchaMapImporter
 		void Update()
 		{
 			if (Input.GetKeyDown(KeyCode.L) && !_editUiVisible) _mainUiVisible = !_mainUiVisible;
-			if (Input.GetKeyDown(KeyCode.E) && _currentMap != null) _editUiVisible = !_editUiVisible;
+			if (Input.GetKeyDown(KeyCode.E) && _editedMap != null) _editUiVisible = !_editUiVisible;
 		}
 
 		/// <summary>
@@ -79,20 +79,19 @@ namespace PatchaMapImporter
 						GUILayout.Space(5);
 
 						//show map list and wire button actions
-						new MapListWidget(ref _mainUiScrollPos, _mapManager.Maps, _currentMap,
+						new MapListWidget(ref _mainUiScrollPos, _mapManager.Maps, _loadedMap,
 							map => {
-								if (map == _currentMap) return; //map already loaded, do nothing
+								if (map == _loadedMap) return; //map already loaded, do nothing
 
 								Log.Write($"MI: Load map '{map.Filename}'");
-								_currentMap = map;
+								_loadedMap = map;
+								_editedMap = map;
 								_mapLoader.Load(map);
 								_mainUiVisible = false;
 							},
 							map => {
-								//if (_editUiVisible) return; //deactivate if editing
-
 								Log.Write($"MI: Edit map '{map.Filename}'");
-								_currentMap = map;
+								_editedMap = map;
 								_editUiVisible = true;
 							}
 						);
@@ -120,10 +119,10 @@ namespace PatchaMapImporter
 		/// </summary>
 		void ShowEditUi()
 		{
-			if (_currentMap != null) {
+			if (_editedMap != null) {
 
 				if (_currentMapEditInfos == null) {
-					_currentMapEditInfos = new Map(_currentMap.Filename, _currentMap.DisplayName, _currentMap.Authors, _currentMap.Description, _currentMap.Rating, _currentMap.Flags);
+					_currentMapEditInfos = new Map(_editedMap.Filename, _editedMap.DisplayName, _editedMap.Authors, _editedMap.Description, _editedMap.Rating, _editedMap.Flags);
 				}
 
 				var editRect = new Rect((Screen.width / 2) - (Screen.width / 8), 300, Screen.width / 4, 325);
@@ -147,7 +146,7 @@ namespace PatchaMapImporter
 					new EditMapWidget(ref _currentMapEditInfos,
 						map => {
 							Log.Write($"MI: Save '{map.Filename}'");
-							_currentMap.CopyEditableInfos(map);
+							_editedMap.CopyEditableInfos(map);
 							_mapManager.Save();
 							_editUiVisible = false;
 							_currentMapEditInfos = null;
@@ -179,7 +178,8 @@ namespace PatchaMapImporter
 
 		private MapLoader _mapLoader;
 		private MapManager _mapManager;
-		private Map _currentMap;
+		private Map _editedMap;
+		private Map _loadedMap;
 
 
 	}

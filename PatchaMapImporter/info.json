@@ -2,7 +2,7 @@
 	"Id": "PatchaMapImporter",
 	"DisplayName": "PatchaMapImporter",
 	"Author": "herve3527 with credits to Mayhem & Lineryder's original MapImporter",
-	"Version": "1.0.2",
+	"Version": "1.0.3",
 	"ManagerVersion": "0.12.3",
 	"AssemblyName": "PatchaMapImporter.dll",
 	"EntryMethod": "PatchaMapImporter.ModEntry.Load"
