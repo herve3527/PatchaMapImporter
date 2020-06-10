@@ -90,7 +90,9 @@ namespace PatchaMapImporter.Tools
 
 			//filter using search
 			if (!string.IsNullOrEmpty(filter.Search)) {
-				maps = maps.FindAll(map => map.Filename.Contains(filter.Search));
+				maps = maps.FindAll(map => map.DisplayName.Contains(filter.Search)
+											|| map.Authors.Contains(filter.Search)
+											|| map.Filename.Contains(filter.Search));
 			}
 
 			//order
